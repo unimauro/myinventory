@@ -1,0 +1,12 @@
+.jumbotron
+  %h1.display-4 Dealership:
+  %p.lead 
+    Name:
+    = @dealership.name
+    %br/
+    Address:
+    = @dealership.address
+  %hr.my-4  
+    = link_to 'Edit', edit_dealership_path(@dealership), class:"btn btn-secondary"
+    \|
+    = link_to 'Back', dealerships_path, class:"btn btn-dark"

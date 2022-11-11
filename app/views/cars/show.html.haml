@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Model:
+  = @car.model
+%p
+  %b Year:
+  = @car.year
+%p
+  %b Site:
+  = @car.site
+%p
+  %b Dealership:
+  = @car.dealership.name
+%p
+  %b Carstatus:
+  = @car.carstatus.name
+
+= link_to 'Edit', edit_car_path(@car), class:"btn btn-secondary"
+\|
+= link_to 'Back', cars_path, class:"btn btn-dark"

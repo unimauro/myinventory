@@ -1,0 +1,20 @@
+%h1 Listing inventories
+
+%table.table.table-striped.table-bordered.table-hover
+  %thead.thead-dark
+    %tr
+      %th Due
+      %th User
+      %th Car
+
+  %tbody
+    - @inventories.each do |inventory|
+      %tr
+        %td= inventory.due
+        %td= inventory.user.email
+        %td= inventory.car.model
+        
+
+%br
+
+= link_to 'New Inventory', new_inventory_path, class:"btn btn-secondary"

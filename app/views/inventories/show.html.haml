@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Due:
+  = @inventory.due
+%p
+  %b User:
+  = @inventory.user.email
+%p
+  %b Car:
+  = @inventory.car.model
+
+= link_to 'Edit', edit_inventory_path(@inventory), class:"btn btn-secondary"
+\|
+= link_to 'Back', inventories_path, class:"btn btn-dark"

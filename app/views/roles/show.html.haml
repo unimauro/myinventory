@@ -1,0 +1,8 @@
+.jumbotron
+  %h1.display-4 Role:
+  %p.lead 
+    = @role.name
+  %hr.my-4
+    = link_to 'Edit', edit_role_path(@role), class:"btn btn-secondary"
+    \|
+    = link_to 'Back', roles_path, class:"btn btn-dark"

@@ -1,0 +1,33 @@
+%nav.navbar.navbar-expand-lg.bg-light
+  .container-fluid
+    = link_to t('.inventory'), root_path, class:"navbar-brand"
+    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        %li.nav-item
+          = link_to t('.About'), home_about_path, class:"nav-link active", "aria-current"=>"page"
+        - if !user_signed_in?
+          %li.nav-item
+            = link_to t('.Sing_Up '), new_user_registration_path, class:"nav-link active", "aria-current"=>"page"
+          %li.nav-item
+            = link_to t('.Sing_In'), new_user_session_path,  class:"nav-link active", "aria-current"=>"page"
+        - elsif user_signed_in? and current_user.role_id!=1
+          %li.nav-item
+            = link_to t('.Sing_Out'), destroy_user_session_path, method: :delete, class:"nav-link active", "aria-current"=>"page"        
+        - else
+          %li.nav-item
+            = link_to t('.Sing_Out'), destroy_user_session_path, method: :delete, class:"nav-link active", "aria-current"=>"page"        
+          %li.nav-item
+            = link_to t('.Roles'), roles_path, class:"nav-link active", "aria-current"=>"page"
+          %li.nav-item
+            = link_to t('.Edit_Cars'), new_car_path, class:"nav-link active", "aria-current"=>"page"        
+          %li.nav-item
+            = link_to t('.Dealerships'), dealerships_path, class:"nav-link active", "aria-current"=>"page"
+          %li.nav-item
+            = link_to t('.New_Inventary'), new_inventory_path, class:"nav-link active", "aria-current"=>"page"            
+        %li.nav-item
+          = link_to t('.Inventary'), inventories_path, class:"nav-link active", "aria-current"=>"page"        
+      %form.d-flex{:role => "search"}
+        %input.form-control.me-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
+        %button.btn.btn-outline-success{:type => "submit"} Search

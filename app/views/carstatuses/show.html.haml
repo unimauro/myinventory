@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @carstatus.name
+
+= link_to 'Edit', edit_carstatus_path(@carstatus), class:"btn btn-secondary"
+\|
+= link_to 'Back', carstatuses_path, class:"btn btn-dark"

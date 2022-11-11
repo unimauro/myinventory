@@ -1,0 +1,2 @@
+module CarstatusesHelper
+end

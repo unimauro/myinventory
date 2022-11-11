@@ -1,0 +1,21 @@
+%h1 Listing carstatuses
+
+%table.table.table-striped.table-bordered.table-hover
+  %thead.thead-dark
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @carstatuses.each do |carstatus|
+      %tr
+        %td= carstatus.name
+        %td= link_to 'Show', carstatus
+        %td= link_to 'Edit', edit_carstatus_path(carstatus)
+        %td= link_to 'Destroy', carstatus, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Carstatus', new_carstatus_path, class:"btn btn-secondary"
